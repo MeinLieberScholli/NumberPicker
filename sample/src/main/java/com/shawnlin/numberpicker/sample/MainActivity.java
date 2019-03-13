@@ -2,14 +2,12 @@ package com.shawnlin.numberpicker.sample;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import com.shawnlin.numberpicker.NumberPicker;
-
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        NumberPicker numberPicker = findViewById(R.id.number_picker);
+        final NumberPicker numberPicker = findViewById(R.id.number_picker);
 
         // Set divider color
         numberPicker.setDividerColor(ContextCompat.getColor(this, R.color.colorPrimary));
@@ -36,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         // Set selected text color
         numberPicker.setSelectedTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
         numberPicker.setSelectedTextColorResource(R.color.colorPrimary);
+
+        // Set locale
+        numberPicker.setLocale(new Locale("ar")); //comment this line to show the picker in english
 
         // Set selected text size
         numberPicker.setSelectedTextSize(getResources().getDimension(R.dimen.selected_text_size));
@@ -65,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
         numberPicker.setIntervalTextColorResource(R.color.colorAccent);
         numberPicker.setMinIntervalValue(3);
         numberPicker.setMaxIntervalValue(6);
+
+        // Set string values
+//        String[] data = {"A", "B", "C", "D", "E", "F", "G", "H", "I"};
+//        numberPicker.setMinValue(1);
+//        numberPicker.setMaxValue(data.length);
+//        numberPicker.setDisplayedValues(data);
 
         // Set fading edge enabled
         numberPicker.setFadingEdgeEnabled(true);
